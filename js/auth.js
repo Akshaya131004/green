@@ -18,6 +18,9 @@ function registerUser() {
     userPool.signUp(username, password, attributeList, null, (err, result) => {
         if (err) {
             alert(err.message || JSON.stringify(err));
+            if (err.code === 'UsernameExistsException' {
+                window.location.href = 'login.html';
+            }
             return;
         }
         alert('Registration successful! Please login.');
